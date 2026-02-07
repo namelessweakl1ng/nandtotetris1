@@ -1,0 +1,29 @@
+CHIP Memory {
+    IN  in[16], load, address[15];
+    OUT out[16];
+
+    PARTS:
+    // Address decoding
+    Not(in=address[14], out=notA14);
+    Not(in=address[13], out=notA13);
+
+    // Select signals
+    // RAM when address[14] = 0
+    And(a=load, b=notA14, out=loadRAM);
+
+    // Screen when address[14]=1 and address[13]=0
+    And(a=address[14], b=notA13, out=screenSel);
+    And(a=load, b=screenSel, out=loadScreen);
+
+    // Keyboard when address[14]=1 and address[13]=1
+    And(a=address[14], b=address[13], out=keySel);
+
+    // Devices
+    RAM16K(in=in, load=loadRAM, address=address[0..13], out=ramOut);
+    Screen(in=in, load=loadScreen, address=address[0..12], out=screenOut);
+    Keyboard(out=keyOut);
+
+    // Output selection
+    Mux16(a=ramOut, b=screenOut, sel=address[14], out=ramOrScreen);
+    Mux16(a=ramOrScreen, b=keyOut, sel=keySel, out=out);
+}

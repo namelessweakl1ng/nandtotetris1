@@ -1,0 +1,27 @@
+CHIP Computer {
+
+    IN reset;
+
+    PARTS:
+    // Instruction memory
+    ROM32K(address=pc, out=instruction);
+
+    // Main CPU
+    CPU(
+        inM=memOut,
+        instruction=instruction,
+        reset=reset,
+        outM=cpuOutM,
+        writeM=writeM,
+        addressM=addressM,
+        pc=pc
+    );
+
+    // Data memory
+    Memory(
+        in=cpuOutM,
+        load=writeM,
+        address=addressM,
+        out=memOut
+    );
+}
