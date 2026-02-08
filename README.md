@@ -1,5 +1,6 @@
 # nandtotetris1
 
+<<<<<<< HEAD
 This repository contains my solutions and work for **Part I of the Nand to Tetris course** (also known as *From NAND to Tetris – Building a Modern Computer from First Principles*).
 In this part of the course, the focus is on building the fundamental hardware components of a computer using the **Hardware Description Language (HDL)** provided in the course tools.
 
@@ -67,3 +68,27 @@ Offered by: Hebrew University of Jerusalem on Coursera
 ---
 
 *This repository is part of my learning journey in computer architecture and low-level systems design.*
+=======
+My work and projects from the **Nand2Tetris** course.
+
+## Contents
+
+This repository contains implementations and exercises from different projects in the course, including:
+
+* Logic gates
+* ALU
+* CPU
+* Assembly programs
+* VM translator
+* Compiler (as I progress)
+
+Each project is organized in its own folder.
+
+## Course
+
+[Nand2Tetris – From NAND to Tetris](https://www.nand2tetris.org/)
+
+## Notes
+
+These files are for learning purposes and may not be fully optimized or complete.
+>>>>>>> 88127fa (update)
